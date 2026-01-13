@@ -11,7 +11,7 @@ body {
     color: #e5e7eb;
 }
 
-/* NAVBAR */
+/* =================== NAVBAR =================== */
 nav {
     position: fixed;
     width: 100%;
@@ -38,25 +38,25 @@ nav a:hover {
     color: #38bdf8;
 }
 
-/* SECTIONS */
+/* =================== SECTIONS =================== */
 section {
     min-height: 100vh;
     padding: 100px 10%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .container {
     width: 100%;
 }
 
-/* HERO */
+/* =================== HERO =================== */
 .hero {
     text-align: center;
-    padding-top: 0; /* remove extra padding if needed */
+    padding-top: 0;
 }
 
-/* HERO CONTENT: text + image side by side */
 .hero .hero-content {
     display: flex;
     align-items: center;
@@ -66,8 +66,8 @@ section {
 }
 
 .hero-text {
-    flex: 1 1 400px; /* text takes available space */
-    text-align: left; /* align text left for modern layout */
+    flex: 1 1 400px;
+    text-align: left;
 }
 
 .hero h1 {
@@ -100,7 +100,6 @@ section {
     background: #0ea5e9;
 }
 
-/* HERO IMAGE */
 .hero-image {
     flex: 1 1 350px;
     text-align: center;
@@ -109,8 +108,8 @@ section {
 .hero-image img {
     width: 100%;
     max-width: 400px;
-    border-radius: 20px; /* rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* modern shadow */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s;
 }
 
@@ -118,25 +117,51 @@ section {
     transform: scale(1.05);
 }
 
-/* ABOUT */
-.about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+/* =================== ABOUT =================== */
+.about-sidebar {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
-.about h2 {
+/* LEFT SIDEBAR */
+.sidebar {
+    flex: 1 1 300px;
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+.sidebar h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #38bdf8;
+}
+
+.sidebar p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* RIGHT ABOUT CONTENT */
+.about-content {
+    flex: 2 1 500px;
+}
+
+.about-content h2 {
     font-size: 2.2rem;
     margin-bottom: 15px;
 }
 
-.about p {
+.about-content p {
     text-align: justify;
     line-height: 1.7;
     opacity: 0.9;
+    margin-bottom: 20px;
 }
 
-/* SKILLS */
+/* =================== SKILLS =================== */
 .skills {
     text-align: center;
 }
@@ -156,14 +181,15 @@ section {
     background: #1e293b;
     padding: 25px;
     border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .skill-box:hover {
     transform: translateY(-5px);
-    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
 
-/* PROJECTS */
+/* =================== PROJECTS =================== */
 .projects h2 {
     font-size: 2.2rem;
     margin-bottom: 30px;
@@ -180,6 +206,12 @@ section {
     background: #1e293b;
     padding: 20px;
     border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
 
 .project h3 {
@@ -187,7 +219,7 @@ section {
     color: #38bdf8;
 }
 
-/* CONTACT */
+/* =================== CONTACT =================== */
 .contact {
     text-align: center;
 }
@@ -201,7 +233,7 @@ section {
     margin-bottom: 10px;
 }
 
-/* FOOTER */
+/* =================== FOOTER =================== */
 footer {
     text-align: center;
     padding: 20px;
@@ -209,14 +241,18 @@ footer {
     font-size: 14px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    /* About section stacked */
-    .about {
-        grid-template-columns: 1fr;
+/* =================== RESPONSIVE =================== */
+@media (max-width: 1024px) {
+    .about-sidebar {
+        flex-direction: column;
     }
 
-    /* Hero section stacked */
+    .sidebar, .about-content {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
     .hero .hero-content {
         flex-direction: column;
         text-align: center;
@@ -231,4 +267,3 @@ footer {
         max-width: 250px;
     }
 }
-
