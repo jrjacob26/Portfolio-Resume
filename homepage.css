@@ -267,3 +267,47 @@ footer {
         max-width: 250px;
     }
 }
+
+/* ---------- ADDITIONAL CSS FOR CLICKABLE PROJECTS ---------- */
+
+/* Make project cards clickable with hover effect */
+.project-grid .project {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-grid .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Lightbox styling */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.95); /* dark background consistent with site */
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+#lightbox .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 2rem;
+    color: #f1f5f9;
+    cursor: pointer;
+    font-weight: bold;
+}

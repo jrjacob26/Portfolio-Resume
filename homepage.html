@@ -123,6 +123,10 @@
         <h2>Projects</h2>
         <div class="project-grid">
             <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio website showcasing projects, skills, and experience, built using modern HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="project">
                 <h3>Student Record System</h3>
                 <p>CRUD-based web system using PHP and MySQL.</p>
             </div>
@@ -131,12 +135,8 @@
                 <p>Arduino-based flood detection with SMS alerts.</p>
             </div>
             <div class="project">
-                <h3>Mobile App Dashboard</h3>
-                <p>Flutter app integrated with Firebase.</p>
-            </div>
-            <div class="project">
                 <h3>Restaurant System</h3>
-                <p>Html and Css only</p>
+                <p>HTML and CSS only.</p>
             </div>
         </div>
     </div>
@@ -152,9 +152,57 @@
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
     © 2026 Christopher M. Jacob Jr. All Rights Reserved.
 </footer>
+
+<!-- LIGHTBOX FOR PROJECT IMAGES -->
+<div id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Project Screenshot">
+</div>
+
+<!-- JS FOR CLICKABLE PROJECTS -->
+<script>
+// Map project titles to screenshot image paths
+const projectImages = {
+    "Portfolio Website": "Image of the System/Portfolio System.png",
+    "Student Record System": "Image of the System/Student_Record.png",
+    "Arduino Localized Flood and Rainfall Detection with SMS Alerts": "Image of the System/Flood.png",
+    "Restaurant System": "Image of the System/Restaurant.png"
+};
+
+// Get all project cards
+const projects = document.querySelectorAll(".project-grid .project");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+// Add click event to each project card
+projects.forEach(project => {
+    project.addEventListener("click", () => {
+        const title = project.querySelector("h3").innerText;
+        const imgSrc = projectImages[title];
+        if(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = "flex";
+        }
+    });
+});
+
+// Close lightbox function
+function closeLightbox() {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+}
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener("click", (e) => {
+    if(e.target === lightbox) {
+        closeLightbox();
+    }
+});
+</script>
 
 </body>
 </html>
